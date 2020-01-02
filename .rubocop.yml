@@ -1,0 +1,20 @@
+inherit_from: .rubocop_todo.yml
+
+Layout/LineLength:
+  Max: 130
+
+Style/MixinUsage:
+  Enabled: false
+
+#クラスのコメント必須を無視
+Style/Documentation:
+  Enabled: false
+
+#モジュール名：クラス名の定義を無視
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+#日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
