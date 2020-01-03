@@ -18,3 +18,7 @@ Style/ClassAndModuleChildren:
 AsciiComments:
   Enabled: false
 
+#メソッド記述複数行にする
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
