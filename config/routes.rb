@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   }
   devise_scope :user do
     get '/sign_up', to: 'users/registrations#new'
+    get '/login', to: 'users/sessions#new'
+    delete '/logout', to: 'users/sessions#destroy'
   end
 
   resources :users, only: [:index, :show]

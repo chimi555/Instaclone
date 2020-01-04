@@ -1,0 +1,15 @@
+<%= provide(:title, @user.user_name)%>
+
+    <div class="user_info row">
+      <h1>
+        <div class="col-md-4">
+        #プロフィール写真を表示
+        </div>
+        <div class="col-md-8">
+          <%= @user.user_name %>
+          <%= link_to "プロフィール編集",  "#", class:"btn" %>
+        </div>
+      </h1>
+    </div>
+  
+</div>
