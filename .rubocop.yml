@@ -1,7 +1,7 @@
 inherit_from: .rubocop_todo.yml
 
 Layout/LineLength:
-  Max: 130
+  Max: 160
 
 Style/MixinUsage:
   Enabled: false
@@ -22,3 +22,5 @@ AsciiComments:
 Style/EmptyMethod:
   EnforcedStyle: expanded
 
+Metrics/BlockLength:
+  Max: 30

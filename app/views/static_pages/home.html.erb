@@ -3,9 +3,15 @@
   <h2>
   	ようこそInstagramへ
   </h2>
+
   <div class="signup-box">
     <p><%= link_to"Facebookでログイン", "#", class:"btn" %></p>
     <p>または</p>
     <p><%= link_to "新規登録", signup_path, class:"btn" %></p>
   </div>
+  <div class="signin-box">
+    <p><%= link_to "ログインする", new_user_session_path, class:"btn" %></p>
+  </div>
+
+
 </div>

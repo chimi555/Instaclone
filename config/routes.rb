@@ -3,11 +3,15 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
   get '/about', to: 'static_pages#about'
-  get '/signup', to: 'users#new'
   devise_for :users, controllers: {
-  confirmations: 'users/confirmations',
-  passwords:     'users/passwords',
-  registrations: 'users/registrations',
-  sessions:      'users/sessions',
+    confirmations: 'users/confirmations',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
+  devise_scope :user do
+    get '/signup', to: 'users/registrations#new'
+  end
+
+  resources :users, only: [:index, :show]
 end
