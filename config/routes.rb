@@ -7,10 +7,11 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations',
     passwords: 'users/passwords',
     registrations: 'users/registrations',
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
   devise_scope :user do
-    get '/signup', to: 'users/registrations#new'
+    get '/sign_up', to: 'users/registrations#new'
   end
 
   resources :users, only: [:index, :show]
