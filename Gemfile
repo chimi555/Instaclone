@@ -14,7 +14,10 @@ gem 'faker'
 #ページネーション
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-
+#画像投稿
+gem 'carrierwave'
+#画像リサイズ
+gem 'mini_magick'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -79,6 +82,10 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
+end
+
+group :proguction do
+  gem 'fog'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

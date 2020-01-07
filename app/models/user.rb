@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :user_name, presence: true, uniqueness: { case_sensitive: false }
+  has_many :microposts, dependent: :destroy
 
 
   def self.find_for_oauth(auth)

@@ -1,0 +1,8 @@
+<li id="micropost-<%= micropost.id %>">
+  #ユーザーイメージを表示
+  <span class="user"><%= link_to micropost.user.user_name, micropost.user%></span>
+  <span class="post">投稿された写真表示</span>
+  <span class="timestamp">
+    <%= time_ago_in_words(micropost.created_at) %> ago.
+  </span>
+</li>

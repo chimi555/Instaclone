@@ -8,8 +8,18 @@
         <div class="col-md-8">
           <%= @user.user_name %>
           <%= link_to "プロフィール編集",  edit_user_registration_path, class:"btn" %>
+          <div class="countbox">
+            <p>投稿数：<%= @user.microposts.count %></p>
+          </div>
         </div>
       </h1>
     </div>
-  
-</div>
+    <div class="microposts_box">
+      <% if @user.microposts.any? %>
+        <ol class="microposts">
+          <%= render @microposts %>
+        </ol>
+        <%= will_paginate @microposts %>
+      <% end %>
+    </div>
+
