@@ -9,6 +9,12 @@ ruby '2.5.7'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 # bootstrap-sass
 gem 'bootstrap-sass', '3.3.7'
+#サンプルユーザー
+gem 'faker'
+#ページネーション
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
