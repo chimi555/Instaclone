@@ -1,11 +1,15 @@
 class PictureUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
+  process resize_to_limit: [400,400]
 
-  # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -16,6 +20,15 @@ class PictureUploader < CarrierWave::Uploader::Base
   #アップロード可能な拡張子のリスト
   def extension_whitelist
     %w(jpg jpeg gif png)
+  end
+
+  def create_square_image(magick, size)
+    narrow = magick[:width] > magick[:height] ? magick[:height] : magick[:width]
+    magick.combine_option do |c|
+      c.gravity "center"
+      c.crop "#{narrow}x#{narrow}+0+0"
+    end
+    magick.resize "#{size}x#{size}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

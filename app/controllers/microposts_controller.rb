@@ -22,7 +22,7 @@ class MicropostsController < ApplicationController
   #protectedとどう使い分けたら良い？
 
     def micropost_params
-      paramss.require(:micropost).permit(:content, :picture)
+      params.require(:micropost).permit(:content, :picture)
     end
 
 
