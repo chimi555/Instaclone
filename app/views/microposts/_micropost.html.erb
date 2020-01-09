@@ -8,6 +8,7 @@
     </span>
     <span class="timestamp">
       <%= time_ago_in_words(micropost.created_at) %> ago.
+      <%= link_to "delete", micropost, method: :delete, data: { confirm: "Are you sure?" }%>
     </span>
   </div>
 </li>
