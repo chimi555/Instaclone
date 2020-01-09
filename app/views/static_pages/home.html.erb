@@ -1,17 +1,26 @@
-<div class="center">
-  <h1>Instagram</h1>
-  <h2>
-  	ようこそInstagramへ
-  </h2>
-
-  <div class="signup-box">
-    <p><%= link_to"Facebookでログイン", "#", class:"btn" %></p>
-    <p>または</p>
-    <p><%= link_to "新規登録", sign_up_path, class:"btn" %></p>
+<% if user_signed_in? %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= render 'shared/user_info'%>
+    </div>
+    <div class = "col-md-8 feed-box">
+      <%= render 'shared/feed'%>
+    </div>
   </div>
-  <div class="signin-box">
-    <p><%= link_to "ログインする", login_path, class:"btn" %></p>
+<% else %>
+  <div class="center">
+    <h1>Instagram</h1>
+    <h2>
+    	ようこそInstagramへ
+    </h2>
+
+    <div class="signup-box">
+      <p><%= link_to"Facebookでログイン", "#", class:"btn" %></p>
+      <p>または</p>
+      <p><%= link_to "新規登録", sign_up_path, class:"btn" %></p>
+    </div>
+    <div class="signin-box">
+      <p><%= link_to "ログインする", login_path, class:"btn" %></p>
+    </div>
   </div>
-
-
-</div>
+<% end %>

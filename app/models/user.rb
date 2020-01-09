@@ -30,7 +30,7 @@ class User < ApplicationRecord
     user
   end
 
-  #
+
   def login
     @login || self.user_name || self.email
   end
@@ -43,6 +43,10 @@ class User < ApplicationRecord
     elsif conditions.has_key?(:user_name) || conditions.has_key?(:email)
       where(conditions.to_h).first
     end
+  end
+
+  def feed
+    Micropost.where("user_id = ?",id)
   end
 
 end
