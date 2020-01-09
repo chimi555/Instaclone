@@ -1,0 +1,36 @@
+<% provide(:title, @title)%>
+<div class="user_info row">
+    <div class="col-md-4">
+    #プロフィール写真を表示
+    </div>
+    <div class="col-md-8">
+      <%= @user.user_name %>
+      <%if current_user?(@user)%>
+        <%= link_to "プロフィール編集",  edit_user_registration_path, class:"btn" %>
+      <% else %>
+        <%= render 'follow_form'%>
+      <% end %>
+      <div class="countbox">
+        <p>投稿数：<%= @user.microposts.count %></p>
+        <div class="stats">
+          <%= render 'shared/stats'%>
+        </div>
+      </div>
+    </div>
+</div>
+<% if @users.any? %>
+  <div class="users_box row">
+    <div class="col-md-4 user_avatars">
+      #ユーザーのアイコン表示
+    </div>
+    <div class="col-md-8">
+      <%= @title %>
+      <ul class="users_follow">
+        <%= render @users%>
+      </ul>
+      <%= will_paginate %>
+    </div>
+  </div>
+<% else %>
+  ユーザーはいません
+<% end %>
