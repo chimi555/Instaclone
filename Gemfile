@@ -20,6 +20,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 #jQuery
 gem "jquery-rails"
+#検索機能
+gem "ransack"
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server

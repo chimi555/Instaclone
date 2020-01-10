@@ -23,6 +23,11 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def index
+    @q = Micropost.all.ransack(params[:q])
+    @microposts = @q.result(distinct: true)
+  end
+
   private
   #protectedとどう使い分けたら良い？
 
