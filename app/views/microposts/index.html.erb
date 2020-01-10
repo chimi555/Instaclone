@@ -1,6 +1,9 @@
-<div class = "container">
-  <%= render 'shared/search_form' %>
-  <ol class="microposts">
-    <%= render @microposts %>
-  </ol>
+<%= provide(:title, "Search...")%>
+<div class="row">
+  <div class="col-md-4">
+    <%= render 'shared/user_info'%>
+  </div>
+  <div class = "col-md-8 feed-box">
+    <%= render @search_microposts %>
+  </div>
 </div>

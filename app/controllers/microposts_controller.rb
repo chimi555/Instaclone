@@ -24,8 +24,7 @@ class MicropostsController < ApplicationController
   end
 
   def index
-    @q = Micropost.all.ransack(params[:q])
-    @microposts = @q.result(distinct: true)
+    
   end
 
   private
