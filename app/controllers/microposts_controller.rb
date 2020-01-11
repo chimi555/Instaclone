@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :authenticate_user!, only:[:new, :create, :destroy]
+  before_action :authenticate_user!, only:[:new, :create, :destroy, :show]
   before_action :correct_user, only: :destroy
 
   def new
@@ -21,6 +21,10 @@ class MicropostsController < ApplicationController
     @micropost.destroy
     flash[:success] = "Micropost deleted"
     redirect_to request.referrer || root_url
+  end
+
+  def show
+    @micropost = Micropost.find(params[:id])
   end
 
   def index

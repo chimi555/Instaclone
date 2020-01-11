@@ -17,9 +17,10 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: "Relationship",
                                   foreign_key: "followed_id",
                                   dependent: :destroy
-  
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :likes, dependent: :destroy
+  has_many :liked_microposts, through: :likes, source: :micropost
 
 
   def self.find_for_oauth(auth)
@@ -69,6 +70,18 @@ class User < ApplicationRecord
 
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def already_liked?(micropost)
+    liked_microposts.include?(micropost)
+  end
+
+  def like(micropost)
+    likes.create(micropost_id: micropost.id)
+  end
+
+  def unlike(micropost)
+    likes.find_by(micropost_id: micropost.id).destroy
   end
 
 end
