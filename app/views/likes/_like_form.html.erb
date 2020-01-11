@@ -1,10 +1,7 @@
-<% if current_user.already_liked?(micropost) %>
-  <%= form_for(current_user.likes.find_by(micropost_id: micropost.id), html: { method: :delete }) do |f| %>
-    <%= f.submit "お気に入り解除", class: "btn" %>
+<div id="like-<%= micropost.id %>">
+  <% if current_user.already_liked?(micropost) %>
+    <%= render 'likes/unlike', micropost: micropost %>
+  <% else %>
+    <%= render 'likes/like', micropost: micropost %>
   <% end %>
-<% else %>
-  <%= form_for(current_user.likes.build) do |f| %>
-    <div><%= hidden_field_tag :micropost_id, micropost.id %></div>
-    <%= f.submit "いいね！", class: "btn btn-primary" %>
-  <% end %>
-<% end %>
+</div>

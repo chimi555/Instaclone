@@ -10,6 +10,9 @@
     </div>
     <span class="eachpost-content">
       <%= render "likes/like_form", micropost: micropost %>
+      <div id="liked_count">
+        <%= micropost.likes.count %>
+      </div>
       <%= time_ago_in_words(micropost.created_at) %> ago.
       <%= link_to "delete", micropost, method: :delete, data: { confirm: "Are you sure?" }%>
     </span>
