@@ -6,16 +6,15 @@ class CommentsController < ApplicationController
     @comment = @micropost.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to micropost_path(@micropost)
-    else
-      redirect_to micropost_path(@micropost)
+      render :index
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    redirect_to request.referrer || micropost_path(@micropost)
+    if @comment.destroy
+      render :index
+    end
   end
 
   private

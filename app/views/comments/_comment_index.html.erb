@@ -3,7 +3,7 @@
     <strong><%= link_to "#{comment.user.user_name}", user_path(comment.user.id) %></strong>
     <p><%= comment.content %></p>
     <% if comment.user == current_user %>
-      <p><%= link_to 'コメントを削除する', micropost_comment_path(comment.micropost_id, comment.id), method: :delete%></p>
+      <p><%= link_to 'コメントを削除する', micropost_comment_path(comment.micropost_id, comment.id), method: :delete, remote: true %></p>
     <% end %>
   <% end %>
 <% end %>
