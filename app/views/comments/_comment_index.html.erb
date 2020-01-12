@@ -1,0 +1,9 @@
+<% comments.each do |comment| %>
+  <% unless comment.id.nil? %>
+    <strong><%= link_to "#{comment.user.user_name}", user_path(comment.user.id) %></strong>
+    <p><%= comment.content %></p>
+    <% if comment.user == current_user %>
+      <p><%= link_to 'コメントを削除する', micropost_comment_path(comment.micropost_id, comment.id), method: :delete%></p>
+    <% end %>
+  <% end %>
+<% end %>

@@ -25,6 +25,8 @@ class MicropostsController < ApplicationController
 
   def show
     @micropost = Micropost.find(params[:id])
+    @comment = Comment.new
+    @comments = @micropost.comments
   end
 
   def index

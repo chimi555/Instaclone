@@ -1,6 +1,6 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
+  get 'comments/create'
+  get 'comments/destroy'
   root 'static_pages#home'
   get '/about', to: 'static_pages#about'
   devise_for :users, controllers: {
@@ -23,7 +23,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :microposts
+  resources :microposts do
+    resources :comments, only: [:create, :destroy]
+  end
 
   resources :relationships, only: [:create, :destroy]
   resources :likes, only: [:create, :destroy]
