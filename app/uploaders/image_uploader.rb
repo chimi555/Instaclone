@@ -1,7 +1,6 @@
-class PictureUploader < CarrierWave::Uploader::Base
+class ImageUploader < CarrierWave::Uploader::Base
+#このアップローダーを使わずにpicture_uploaderで兼用できるの？
   include CarrierWave::MiniMagick
-  process resize_to_fill: [300, 300, "Center"]
-
 
   if Rails.env.production?
     storage :fog
@@ -20,14 +19,21 @@ class PictureUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url(*args)
+  def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+     [version_name, "default.png"].compact.join('_')
+  end
+
+
+  version :thumb do
+   process resize_to_fill: [150, 150, "Center"] 
+  end
+
+  version :thumb50 do
+    process resize_to_fill: [50, 50, "Center"]
+  end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
