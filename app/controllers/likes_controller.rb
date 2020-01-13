@@ -5,6 +5,7 @@ class LikesController < ApplicationController
     @micropost = Micropost.find(params[:micropost_id])
     unless current_user.already_liked?(@micropost)
       current_user.like(@micropost)
+      @micropost.create_notification_like!(current_user)
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
         format.js

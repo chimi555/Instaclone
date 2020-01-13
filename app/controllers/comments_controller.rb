@@ -6,14 +6,15 @@ class CommentsController < ApplicationController
     @comment = @micropost.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
-      render :index
+      @micropost.create_notification_comment!(current_user, @comment.id)
+      render :comment_index
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     if @comment.destroy
-      render :index
+      render :comment_index
     end
   end
 

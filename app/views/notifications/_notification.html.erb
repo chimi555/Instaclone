@@ -1,0 +1,25 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+<li>
+  <span>
+    <%= link_to "#{visitor.user_name}", user_path(visitor) %>さんが
+  </span>
+
+  <% case notification.action %>
+    <% when "follow" then %>
+      <span>
+        あなたをフォローしました
+      </span>
+    <% when "like" then %>
+      <span>
+        <%= link_to "あなたの投稿", micropost_path(notification.micropost) %>にいいねしました
+      </span>
+    <% when "comment" then %>
+      <span>
+        <%= link_to "あなたの投稿", micropost_path(notification.micropost) %>にコメントしました。
+      </span>
+  <% end %>
+  <div class="small text-muted">
+    <%= time_ago_in_words(micropost.created_at) %> ago.
+  </div>
+</li>
