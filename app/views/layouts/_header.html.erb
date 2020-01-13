@@ -9,6 +9,9 @@
           <li><%= link_to"My_page", current_user %></li>
           <li>
             <%= link_to"通知ページ", notifications_path%>
+            <% if unchecked_notifications.any? %>
+              <i class="fa fa-circle notification-circle"></i>
+            <% end %>
           </li>
           <li><%= link_to"Log out", logout_path, method: :delete %></li>
         <% else %>

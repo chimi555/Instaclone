@@ -9,6 +9,8 @@ ruby '2.5.7'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 # bootstrap-sass
 gem 'bootstrap-sass', '3.3.7'
+#fontawesome
+gem 'font-awesome-sass'
 #サンプルユーザー
 gem 'faker'
 #ページネーション
