@@ -63,6 +63,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
 
+
   protected
 
   def update_resource(resource, params)
@@ -78,6 +79,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_update_path_for(resource)
     user_path(resource.id)
   end
+
 
 
 end

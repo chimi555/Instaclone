@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :login
+  attr_accessor :current_password
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable,
          authentication_keys: [:login]
@@ -24,6 +25,7 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: "Notification",
                                   foreign_key: "visited_id",
                                   dependent: :destroy
+
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first

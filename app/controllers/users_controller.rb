@@ -22,4 +22,21 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
+
+  def password_edit
+  end
+
+  def password_update
+    if current_user.update_with_password(password_params)
+      sign_in(current_user, bypass: true)
+      redirect_to current_user, notice: "パスワードを更新しました"
+    else
+      render "password_edit"
+    end
+  end
+
+  private
+    def password_params
+      params.require(:user).permit(:current_password, :password, :password_confirmation)
+    end
 end

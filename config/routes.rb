@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   devise_for :users, controllers: {
     confirmations: 'users/confirmations',
-    passwords: 'users/passwords',
     registrations: 'users/registrations',
     sessions: 'users/sessions',
     omniauth_callbacks: 'users/omniauth_callbacks'
@@ -14,13 +13,14 @@ Rails.application.routes.draw do
     get '/sign_up', to: 'users/registrations#new'
     get '/login', to: 'users/sessions#new'
     delete '/logout', to: 'users/sessions#destroy'
-    get '/users/password/edit', to: 'users/passwords#edit'
   end
 
   resources :users, only: [:index, :show]
   resources :users do
     member do
       get :following, :followers
+      get 'password_edit', to: 'users#password_edit'
+    patch 'password_update', to: 'users#password_update'
     end
   end
 
