@@ -65,6 +65,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+
   #アカウント登録後のリダイレクト先
   def after_sign_up_path_for(resource)
     user_path(resource.id)

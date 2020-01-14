@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     get '/sign_up', to: 'users/registrations#new'
     get '/login', to: 'users/sessions#new'
     delete '/logout', to: 'users/sessions#destroy'
+    get '/users/password/edit', to: 'users/passwords#edit'
   end
 
   resources :users, only: [:index, :show]
