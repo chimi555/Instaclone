@@ -5,8 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable,
          authentication_keys: [:login]
   mount_uploader :image, ImageUploader
-  validates :name, presence: true
-  validates :user_name, presence: true, uniqueness: { case_sensitive: false }
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :user_name, presence: true, uniqueness: { case_sensitive: false } ,length: { maximum: 50 }
+  validates :password, presence: true, length: {minimum: 6}
+  validates :profile, length: {maximum: 140}
+
+
   has_many :microposts, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
