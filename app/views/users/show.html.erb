@@ -1,11 +1,13 @@
 <%= provide(:title, @user.user_name)%>
 
     <div class="user_info row">
-      <div class="col-md-4">
-        <%= image_tag @user.image.thumb.to_s %>
+      <div class="col-md-4 ">
+        <%= image_tag @user.image.thumb.to_s, class: "img-responsive" %>
       </div>
       <div class="col-md-8">
-        <%= @user.user_name %>
+        <div class="user-name">
+          <%= @user.user_name %>
+        </div>
         <%if current_user?(@user)%>
           <%= link_to "プロフィール編集",  edit_user_registration_path, class:"btn" %>
         <% else %>

@@ -11,11 +11,13 @@
   <div class="modal fade" id="micropost-modal" tabindex="-1" role="dialog" aria-hidden="true"></div>
 <% else %>
   <div class="center">
-    <h1>Instagram</h1>
-    <h2>
-    	ようこそInstagramへ
-    </h2>
-
+    <div class="top-imgarea">
+      <%= image_tag "top bw.jpg", class: "top-img" %>
+      <h1>Welcome to ARCHigram</h1>
+      <h2>
+      あなたの訪れた建築をみんなに教えてあげよう。
+      </h2>
+    </div>
     <div class="signup-box">
       <p><%= link_to"Facebookでログイン", "#", class:"btn" %></p>
       <p>または</p>
