@@ -3,7 +3,7 @@
     <div class="eachpostbox">
       <div class="eachpost-user">
       #ユーザーイメージを表示
-        <span class="user"><%= link_to micropost.user.user_name, micropost.user %></span>
+        <span class="user"><%= link_to micropost.owner.user_name, micropost.owner %></span>
       </div>
       <div class="post">
         <%= link_to image_tag("#{micropost.picture.url}"), micropost, remote: true, class: "img-responsive"  %>
@@ -23,7 +23,7 @@
     <div class="eachpostbox">
       <div class="eachpost-user">
       #ユーザーイメージを表示
-        <span class="user"><%= link_to micropost.user.user_name, micropost.user %></span>
+        <span class="user"><%= link_to micropost.owner.user_name, micropost.owner %></span>
       </div>
       <div class="post">
         <%= link_to image_tag("#{micropost.picture.url}"), micropost, remote: true, class: "img-responsive"  %>

@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
 FactoryBot.define do
-  factory :user do
+  factory :user, aliases: [:owner] do
     name { 'Chinami Shibata' }
-    user_name { 'chinami' }
+    sequence(:user_name) { |n|'chinami' }
     sequence(:email) { |n| "testr#{n}@example.com" }
     password { 'foobar' }
     profile { 'hello' }

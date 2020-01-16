@@ -10,7 +10,7 @@
         </button>
         <div class="eachpost-user">
           #ユーザーイメージを表示
-          <span class="user"><%= link_to @micropost.user.user_name, @micropost.user%></span>
+          <span class="user"><%= link_to @micropost.owner.user_name, @micropost.owner%></span>
         </div>
       </div>
       <div class = 'modal-body'>

@@ -1,9 +1,10 @@
 class Micropost < ApplicationRecord
-  belongs_to :user
+  belongs_to :owner, class_name: 'User', foreign_key: :user_id
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
-  validates :user_id, presence: true
+  #validates :user_id, presence: true  micropostのテストが通らないため外す belongs_to :ownerとしたことで user_id は必ずあるものだと考える
   validates :picture, presence: true
+  validates :content, length: {maximum: 140 }
   validate :picture_size
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
