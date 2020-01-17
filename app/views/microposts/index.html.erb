@@ -1,9 +1,10 @@
 <%= provide(:title, "Search...")%>
-<div class="row">
-  <div class="col-md-4">
-    <%= render 'shared/user_info'%>
-  </div>
-  <div class = "col-md-8 feed-box">
-    <%= render @search_microposts %>
-  </div>
+
+<div class="microposts_box">
+    <ol class="microposts">
+      <%= render @search_microposts %>
+    </ol>
+    <%= will_paginate @search_microposts %>
 </div>
+<div class="modal fade" id="micropost-modal" tabindex="-1" role="dialog" aria-hidden="true"></div>
+

@@ -2,8 +2,12 @@ class MicropostsController < ApplicationController
   before_action :authenticate_user!, only:[:new, :create, :destroy, :show]
   before_action :correct_user, only: :destroy
 
-  def new
-    @micropost = current_user.microposts.build if user_signed_in?
+  def index
+    if user_signed_in?
+      render 'index'
+    else
+      render '/users/sign_in'
+    end
   end
 
   def create
@@ -17,10 +21,8 @@ class MicropostsController < ApplicationController
     end
   end
 
-  def destroy
-    @micropost.destroy
-    flash[:success] = "Micropost deleted"
-    redirect_to request.referrer || root_url
+  def new
+    @micropost = current_user.microposts.build if user_signed_in?
   end
 
   def show
@@ -29,8 +31,14 @@ class MicropostsController < ApplicationController
     @comments = @micropost.comments
   end
 
-  def index
-    
+  def destroy
+    if current_user
+      @micropost.destroy
+      flash[:success] = "Micropost deleted"
+      redirect_to request.referrer || root_url
+    else
+      redirect_to request.referrer || root_url
+    end
   end
 
   private

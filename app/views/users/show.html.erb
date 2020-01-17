@@ -1,38 +1,37 @@
 <%= provide(:title, @user.user_name)%>
-
-    <div class="user_info row">
-      <div class="col-md-4 ">
-        <%= image_tag @user.image.thumb.to_s, class: "img-responsive" %>
-      </div>
-      <div class="col-md-8">
-        <div class="user-name">
-          <%= @user.user_name %>
-        </div>
-        <%if current_user?(@user)%>
-          <%= link_to "プロフィール編集",  edit_user_registration_path, class:"btn" %>
-        <% else %>
-          <%= render 'follow_form'%>
-        <% end %>
-        <div class="countbox">
-          <p>投稿数：<%= @user.microposts.count %></p>
-          <div class="stats">
-            <%= render 'shared/stats'%>
-          </div>
-        </div>
-        <div class="user-datails">
-          <p><%= @user.name %></p>
-          <p><%= @user.url %></p>
-          <p><%= @user.profile %></p>
-        </div>
+<div class="user_info row">
+  <div class="col-md-4 ">
+    <%= image_tag @user.image.thumb.to_s, class: "img-responsive" %>
+  </div>
+  <div class="col-md-8">
+    <div class="user-name">
+      <%= @user.user_name %>
+    </div>
+    <%if current_user?(@user)%>
+      <%= link_to "プロフィール編集",  edit_user_registration_path, class:"btn" %>
+    <% else %>
+      <%= render 'follow_form'%>
+    <% end %>
+    <div class="countbox">
+      <p>投稿数：<%= @user.microposts.count %></p>
+      <div class="stats">
+        <%= render 'shared/stats'%>
       </div>
     </div>
-    <div class="microposts_box">
-      <% if @user.microposts.any? %>
-        <ol class="microposts">
-          <%= render @microposts %>
-        </ol>
-        <%= will_paginate @microposts %>
-      <% end %>
+    <div class="user-datails">
+      <p><%= @user.name %></p>
+      <p><%= @user.url %></p>
+      <p><%= @user.profile %></p>
     </div>
-    <div class="modal fade" id="micropost-modal" tabindex="-1" role="dialog" aria-hidden="true"></div>
+  </div>
+</div>
+<div class="microposts_box">
+  <% if @user.microposts.any? %>
+    <ol class="microposts">
+      <%= render @microposts %>
+    </ol>
+    <%= will_paginate @microposts %>
+  <% end %>
+</div>
+<div class="modal fade" id="micropost-modal" tabindex="-1" role="dialog" aria-hidden="true"></div>
 

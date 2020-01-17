@@ -14,7 +14,9 @@
           <%= micropost.likes.count %>
         </div>
         <%= time_ago_in_words(micropost.created_at) %> ago.
-        <%= link_to "delete", micropost, method: :delete, data: { confirm: "Are you sure?" }%>
+        <% if current_user?(micropost.owner) %>
+          <%= link_to "delete", micropost, method: :delete, data: { confirm: "Are you sure?" }%>
+        <% end %>
       </span>
     </div>
   </li>
@@ -35,7 +37,9 @@
           <%= micropost.likes.count %>
         </div>
         <%= time_ago_in_words(micropost.created_at) %> ago.
-        <%= link_to "delete", micropost, method: :delete, data: { confirm: "Are you sure?" }%>
+        <% if current_user?(micropost.owner) %>
+          <%= link_to "delete", micropost, method: :delete, data: { confirm: "Are you sure?" }%>
+        <% end %>
       </span>
     </div>
   </li>

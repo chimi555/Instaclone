@@ -1,9 +1,10 @@
 FactoryBot.define do
-  factory :user, aliases: [:owner] do
-    name { 'Chinami Shibata' }
-    sequence(:user_name) { |n|'chinami' }
-    sequence(:email) { |n| "testr#{n}@example.com" }
+  factory :user, aliases: [:owner, :follower, :followed] do
+    sequence(:name) { |n| "tester#{n}" }
+    sequence(:user_name) { |n| "tester#{n}_username" }
+    sequence(:email) { |n| "tester#{n}@example.com" }
     password { 'foobar' }
+
     profile { 'hello' }
   end
 end
