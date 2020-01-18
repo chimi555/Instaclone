@@ -12,10 +12,8 @@ RSpec.describe User, type: :model do
   it {is_expected.to validate_presence_of :name}
   it {is_expected.to validate_presence_of :user_name}
   it {is_expected.to validate_presence_of :email}
-  it {is_expected.to validate_presence_of :password}
   it {is_expected.to validate_length_of(:name).is_at_most(50)}
   it {is_expected.to validate_length_of(:user_name).is_at_most(50)}
-  it {is_expected.to validate_length_of(:password).is_at_least(6)}
   it {is_expected.to validate_length_of(:profile).is_at_most(140)}
   it {is_expected.to validate_uniqueness_of(:email).case_insensitive}
   it {is_expected.to validate_uniqueness_of(:user_name).case_insensitive}

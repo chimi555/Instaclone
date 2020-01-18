@@ -1,5 +1,7 @@
 <%= form_for(current_user.likes.find_by(micropost_id: micropost.id),
                                 html: { method: :delete },
                                 remote: true) do |f| %>
-  <%= f.submit "お気に入り解除", class: "btn" %>
+  <%= button_tag type: 'submit', class: "like-btn"  do%>
+    <i class="fas fa-heart"></i>
+  <% end %>
 <% end %>

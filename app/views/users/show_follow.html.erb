@@ -11,10 +11,7 @@
         <%= render 'follow_form'%>
       <% end %>
       <div class="countbox">
-        <p>投稿数：<%= @user.microposts.count %></p>
-        <div class="stats">
-          <%= render 'shared/stats'%>
-        </div>
+        <%= render 'shared/stats'%>
       </div>
     </div>
 </div>

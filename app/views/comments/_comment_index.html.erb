@@ -1,9 +1,15 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
-    <strong><%= link_to "#{comment.user.user_name}", user_path(comment.user.id) %></strong>
-    <p><%= comment.content %></p>
-    <% if comment.user == current_user %>
-      <p><%= link_to 'コメントを削除する', micropost_comment_path(comment.micropost_id, comment.id), method: :delete, remote: true %></p>
-    <% end %>
+    <div class="each-comment row">
+      <span><%= link_to "#{comment.user.user_name}", user_path(comment.user.id) %></span>
+      <span><%= comment.content %></span>
+      <% if comment.user == current_user %>
+        <span>
+          <%= link_to micropost_comment_path(comment.micropost_id, comment.id), method: :delete, remote: true do %>
+          <i class="fas fa-comment-slash"></i>
+          <% end %>
+        </span>
+      <% end %>
+    </div>
   <% end %>
 <% end %>

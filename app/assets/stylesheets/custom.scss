@@ -22,6 +22,11 @@ li{
   list-style: none;
 }
 
+button{
+  border: none;
+  background-color: none;
+}
+
 .center{
   text-align: center;
   h1{
@@ -32,6 +37,13 @@ li{
   background-color: #fff;
 }
 
+.position-fixed{
+  position: fixed
+}
+
+.img-responsive{
+  display: inline;
+}
 /*typography*/
 
 h1,h2,h3,h4,h5,h6{
@@ -52,7 +64,7 @@ h2{
 
 p{
   font-size: 1.1em;
-  line-height: 1.7em;
+  line-height: 1.1em;
 }
 
 .btn{
@@ -84,6 +96,7 @@ header {
 }
 .header-nav{
   float: right;
+  padding-top: 30px;
   li{
     float: left;
     text-decoration: none;
@@ -93,11 +106,47 @@ header {
       color: #fff;
       font-size: 22px;
     }
+    a{
+     color: #fff;
+    }
   }
 }
 
-/*_serch_form*/
+/*_user_info*/
+.userinfo-box{
+  max-width: 200px;
+  text-align: center;
+  .userinfo-img{
+    padding:20px 10px;
+  }
+  .userinfo-name{
+    font-weight: bold;
+    font-size: 25px;
+    display: inline-block;
+    text-align: left;
+  }
+  .countbox{
+    margin-top: 10px;
+    padding:0 23px;
+  }
+  .user-datails{
+    margin-top: 10px;
+    padding:0 10px;
+    text-align: left;
+  }
+}
 
+/*_stats*/
+.stats{
+  span{
+    float: left;
+    padding:5px;
+  }
+}
+
+
+
+/*_serch_form*/
 .search-form{
   float: left;
   padding: 23px 0 0 15px;
@@ -140,17 +189,116 @@ header {
 
 
 /*users show*/
-.user_info{
-  margin: 10px 150px;
+.usershow_info{
+  padding:30px 150px;
+  border-bottom: solid 1px #d1d1d1;
+  .usershow_info-img{
+    padding:10px 0px;
+  }
   .user-name{
     font-weight: bold;
     font-size: 25px;
     display: inline-block;
-    padding:20px 20px 0 0;
+    padding:0px 20px 0 0;
+  }
+  .user_info-namebox{
+    overflow: hidden;
+    span{
+    float: left;
+    }
+  }
+  .countbox{
+    margin-top: 10px;
+  }
+  .user-datails{
+    margin-top: 10px;
+  }
+}
+.microposts_box{
+  padding-top:30px;
+}
+
+/*_micropost*/
+.eachpostbox{
+  max-width: 300px;
+  padding-bottom: 28px;
+  margin-bottom: 15px;
+}
+.top-eachpostbox{
+  padding: 15px 0 35px;
+  margin-bottom: 30px;
+  .post{
+    padding: 45px 0 3px;
+  }
+}
+.eachpost-user{
+  padding:0px 15px;
+  a{
+    text-decoration: none;
+    color: #000;
+  }
+  span{
+    float: left;
+  }
+  .user-username{
+      padding:3px 10px;
+    }
+}
+.eachpost-content{
+  padding:0px 15px;
+  .eachpost-content-left{
+    span{
+      float: left;
+    }
+    .liked-count{
+      padding-right: 15px;
+    }
+    .comment-icon{
+      padding-right: 10px;
+    }
+  }
+  .eachpost-content-right{
+    span{
+      float: right;
+    }
+    .delete-icon{
+      padding-left: 10px;
+      i{
+        color: #000;
+      }
+    }
   }
 }
 
-
+/*micropost_show*/
+.comments-area{
+  padding:15px;
+}
+.comments-form{
+  margin:10px;
+  .field{
+    margin-bottom: 10px;
+  }
+}
+.close-btn{
+  button{
+    padding:15px;
+  }
+}
+/*_comment_index*/
+.each-comment{
+  border-bottom: solid 1px #dbdbdb;
+  margin:10px;
+  padding:10px;
+  span{
+    float: left;
+    padding-left: 10px;
+    a{
+      text-decoration: none;
+      color: #000;
+    }
+  }
+}
 
 
 /*footer*/

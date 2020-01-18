@@ -1,9 +1,11 @@
 <footer class="footer">
-  <nav>
-    <ul>
-      <% if user_signed_in?%>
-        <li><%= link_to"投稿", new_micropost_path %></li>
-      <% end %>
-    </ul>
-  </nav>
+  <div class="container">
+    <nav>
+      <ul>
+        <% if user_signed_in?%>
+          <li><%= link_to"投稿", new_micropost_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
 </footer>

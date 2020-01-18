@@ -1,10 +1,10 @@
 <%= provide(:title, "Home")%>
 <% if user_signed_in? %>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 col-sm-12">
       <%= render 'shared/user_info'%>
     </div>
-    <div class = "col-md-8 feed-box">
+    <div class = "col-md-8 col-sm-12 feed-box">
       <%= render 'shared/feed'%>
     </div>
   </div>
@@ -19,7 +19,7 @@
       </h2>
     </div>
     <div class="signup-box">
-      <p><%= link_to"Facebookでログイン", "#", class:"btn" %></p>
+      <p><%= link_to"Facebookでログイン", omniauth_authorize_path(resource_name, provider), class:"btn" %></p>
       <p>または</p>
       <p><%= link_to "新規登録", sign_up_path, class:"btn" %></p>
     </div>
