@@ -17,8 +17,8 @@ RSpec.describe 'User edit', type: :system do
     fill_in 'メールアドレス', with: 'edit@example.com'
     click_button 'Update'
     expect(page).to have_current_path "/users/#{@user.id}"
-    expect(user.reload.name).to eq 'EditName'
-    expect(user.reload.user_name).to eq 'Edit_username'
-    expect(user.reload.email).to eq 'edit@example.com'
+    expect(@user.reload.name).to eq 'EditName'
+    expect(@user.reload.user_name).to eq 'Edit_username'
+    expect(@user.reload.email).to eq 'edit@example.com'
   end
 end
