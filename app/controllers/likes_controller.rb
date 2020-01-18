@@ -12,7 +12,7 @@ class LikesController < ApplicationController
       @micropost.create_notification_like!(current_user)
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
-        #format.js 呼び出されない なんで？
+        # format.js 呼び出されない なんで？
       end
     end
   end
@@ -23,7 +23,7 @@ class LikesController < ApplicationController
       current_user.unlike(@micropost)
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
-        #format.js  呼び出されない なんで？
+        # format.js  呼び出されない なんで？
       end
     else
       redirect_to request.referrer || root_url
