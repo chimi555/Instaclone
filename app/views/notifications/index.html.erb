@@ -1,13 +1,18 @@
 <%= provide(:title, "通知一覧")%>
-
-<div>
-  <div class="notifications-title">通知</div>
-  <% if @notifications.exists? %>
-    <div class="notifications-index">
-      <%= render @notifications %>
-      <%= will_paginate %>
-    </div>
-  <% else %>
-    <p>通知はありません</p>
-  <% end %>
+<div class="row">
+  <div class="col-md-4 col-sm-12">
+    <%= render 'shared/user_info'%>
+  </div>
+  <div class = "col-md-8 col-sm-12">
+    <h1>通知一覧</h1>
+    <% if @notifications.exists? %>
+      <div class="notifications-index">
+        <%= render @notifications %>
+        <%= will_paginate %>
+      </div>
+    <% else %>
+      <p>通知はありません</p>
+    <% end %>
+  </div>
+  <div class="modal fade" id="micropost-modal" tabindex="-1" role="dialog" aria-hidden="true"></div>
 </div>

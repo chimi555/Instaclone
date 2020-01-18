@@ -1,5 +1,12 @@
 <% provide(:title, '投稿') %>
-<h1>投稿ページ</h1>
-<div class="micropost_form">
-  <%= render 'shared/micropost_form'%>
+<div class="row">
+  <div class="col-md-4 col-sm-12">
+    <%= render 'shared/user_info'%>
+  </div>
+  <div class = "col-md-8 col-sm-12">
+    <h1>投稿</h1>
+    <div class="micropost_form">
+      <%= render 'shared/micropost_form'%>
+    </div>
+  </div>
 </div>

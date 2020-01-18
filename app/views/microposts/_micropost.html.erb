@@ -54,10 +54,8 @@
       </div>
       <div class="eachpost-content">
         <div class="eachpost-content-left">
-          <span class="liked-icon">
-            <%= render "likes/like_form", micropost: micropost %>
-          </span>
-          <span class="liked-count">
+          <%= render "likes/like_form", micropost: micropost %>
+          <span id="liked-count">
             <%= micropost.likes.count %>
           </span>
           <span class="comment-icon">

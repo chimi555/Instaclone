@@ -1,9 +1,13 @@
-<footer class="footer">
+<footer class="footer navbar-expand-sm navbar-fixed-bottom navbar-light">
   <div class="container">
     <nav>
-      <ul>
+      <ul class="post-icon">
         <% if user_signed_in?%>
-          <li><%= link_to"投稿", new_micropost_path %></li>
+          <li>
+            <%= link_to new_micropost_path do %>
+              <i class="fas fa-camera"></i>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </nav>

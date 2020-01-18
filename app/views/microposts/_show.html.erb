@@ -15,10 +15,8 @@
     <div class = 'modal-body'>
       <div class="eachpost-content row">
         <div class="eachpost-content-left">
-          <span class="liked-icon">
-            <%= render "likes/like_form", micropost: @micropost %>
-          </span>
-          <span class="liked-count">
+          <%= render "likes/like_form", micropost: @micropost %>
+          <span id="liked-countshow">
             <%= @micropost.likes.count %>
           </span>
           <span class="comment-icon">
@@ -41,8 +39,8 @@
           </span>
         </div>
       </div>
-      <div class="comments-area row">
-        <div class="comments-index row">
+      <div id="comments-area row">
+        <div id="comments-index">
           <%= render "comments/comment_index", comments: @comments %>
         </div>
         <div class="comments-form row">

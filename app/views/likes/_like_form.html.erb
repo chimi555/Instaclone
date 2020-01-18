@@ -1,7 +1,7 @@
-<div id="like-<%= micropost.id %>">
+<span id="liked-icon">
   <% if current_user.already_liked?(micropost) %>
     <%= render 'likes/unlike', micropost: micropost %>
   <% else %>
     <%= render 'likes/like', micropost: micropost %>
   <% end %>
-</div>
+</span>

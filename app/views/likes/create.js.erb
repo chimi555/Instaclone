@@ -1,2 +1,3 @@
-$("#like-<%= micropost.id %>").html("<%= escape_javascript(render('likes/unlike')) %>");
-
+$("#liked-icon").html("<%= escape_javascript(render('likes/unlike')) %>");
+$("#liked-count").html('<%= micropost.likes.count %>');
+$("#liked-countshow").html('<%= @micropost.likes.count %>');

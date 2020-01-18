@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment = @micropost.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
-      @comment.micropost.create_notification_comment!(current_user, @comment.id) # ここを足したことによりAjax反応しなくなる、なんで？
+      # @comment.micropost.create_notification_comment(current_user, @comment.id) ここを足したことによりAjax反応しなくなる、なんで？
       render :comment_index
     end
   end

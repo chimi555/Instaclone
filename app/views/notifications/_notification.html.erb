@@ -2,6 +2,7 @@
 <% visited = notification.visited %>
 <li>
   <span>
+    <%= image_tag visitor.image.thumb50.to_s %>
     <%= link_to "#{visitor.user_name}", user_path(visitor) %>さんが
   </span>
 
@@ -12,7 +13,7 @@
       </span>
     <% when "like" then %>
       <span>
-        <%= link_to "あなたの投稿", micropost_path(notification.micropost) %>にいいねしました
+        <%= link_to "あなたの投稿", @notification.micropost, remote: true %>にいいねしました
       </span>
     <% when "comment" then %>
       <span>
