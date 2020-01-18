@@ -20,11 +20,18 @@ textarea{
 
 li{
   list-style: none;
+  padding: 5px 0;
 }
 
 button{
   border: none;
   background-color: none;
+}
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
 }
 
 .center{
@@ -51,7 +58,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 h1{
-  font-size: 3em;
+  font-size: 2em;
   margin-bottom: 30px;
 }
 
@@ -306,6 +313,16 @@ header {
 footer {
   margin-top: 45px;
   color: #777;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
 
 

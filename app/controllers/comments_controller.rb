@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
@@ -6,21 +8,19 @@ class CommentsController < ApplicationController
     @comment = @micropost.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
-      @comment.micropost.create_notification_comment!(current_user, @comment.id)  #ここを足したことによりAjax反応しなくなる、なんで？
+      @comment.micropost.create_notification_comment!(current_user, @comment.id) # ここを足したことによりAjax反応しなくなる、なんで？
       render :comment_index
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
-    if @comment.destroy
-      render :comment_index
-    end
+    render :comment_index if @comment.destroy
   end
 
   private
-    def comment_params
-      params.require(:comment).permit(:content, :micropost_id, :user_id)
-    end
 
+  def comment_params
+    params.require(:comment).permit(:content, :micropost_id, :user_id)
+  end
 end

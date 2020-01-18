@@ -24,3 +24,6 @@ Style/EmptyMethod:
 
 Metrics/BlockLength:
   Max: 30
+
+Metrics/MethodLength:
+  Max: 13

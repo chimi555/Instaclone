@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class MicropostsController < ApplicationController
-  before_action :authenticate_user!, only:[:new, :create, :destroy, :show]
+  before_action :authenticate_user!, only: %i[new create destroy show]
   before_action :correct_user, only: :destroy
 
   def index
@@ -13,7 +15,7 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      flash[:success] = "投稿成功！"
+      flash[:success] = '投稿成功！'
       redirect_to root_url
     else
       @feed_items = []
@@ -34,7 +36,7 @@ class MicropostsController < ApplicationController
   def destroy
     if current_user
       @micropost.destroy
-      flash[:success] = "Micropost deleted"
+      flash[:success] = 'Micropost deleted'
       redirect_to request.referrer || root_url
     else
       redirect_to request.referrer || root_url
@@ -42,14 +44,15 @@ class MicropostsController < ApplicationController
   end
 
   private
-  #protectedとどう使い分けたら良い？
 
-    def micropost_params
-      params.require(:micropost).permit(:content, :picture)
-    end
+  # protectedとどう使い分けたら良い？
 
-    def correct_user
-      @micropost = current_user.microposts.find_by(id:params[:id])
-      redirect_to root_url if @micropost.nil?
-    end
+  def micropost_params
+    params.require(:micropost).permit(:content, :picture)
+  end
+
+  def correct_user
+    @micropost = current_user.microposts.find_by(id: params[:id])
+    redirect_to root_url if @micropost.nil?
+  end
 end

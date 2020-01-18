@@ -25,9 +25,8 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-  #ログイン後のリダイレクト先
+  # ログイン後のリダイレクト先
   def after_sign_in_path_for(resource)
     user_path(resource.id)
   end
-
 end

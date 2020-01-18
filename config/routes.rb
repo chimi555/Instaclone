@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'comments/create'
   get 'comments/destroy'
@@ -15,20 +17,20 @@ Rails.application.routes.draw do
     delete '/logout', to: 'users/sessions#destroy'
   end
 
-  resources :users, only: [:index, :show]
+  resources :users, only: %i[index show]
   resources :users do
     member do
       get :following, :followers
       get 'password_edit', to: 'users#password_edit'
-    patch 'password_update', to: 'users#password_update'
+      patch 'password_update', to: 'users#password_update'
     end
   end
 
   resources :microposts do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: %i[create destroy]
   end
 
-  resources :relationships, only: [:create, :destroy]
-  resources :likes, only: [:create, :destroy]
+  resources :relationships, only: %i[create destroy]
+  resources :likes, only: %i[create destroy]
   resources :notifications, only: [:index]
 end

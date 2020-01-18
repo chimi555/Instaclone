@@ -6,6 +6,11 @@
       <ul class="header-nav">
         <% if user_signed_in? %>
           <li>
+            <%= link_to new_micropost_path do%>
+            <i class="fas fa-camera"></i>
+            <% end %>
+          </li>
+          <li>
             <%= link_to users_path do%>
             <i class="fas fa-users"></i>
             <% end %>

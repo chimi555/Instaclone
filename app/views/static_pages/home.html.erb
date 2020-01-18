@@ -19,7 +19,7 @@
       </h2>
     </div>
     <div class="signup-box">
-      <p><%= link_to"Facebookでログイン", omniauth_authorize_path(resource_name, provider), class:"btn" %></p>
+      <p><%= link_to"Facebookでログイン", "/users/auth/facebook", class:"btn" %></p>
       <p>または</p>
       <p><%= link_to "新規登録", sign_up_path, class:"btn" %></p>
     </div>

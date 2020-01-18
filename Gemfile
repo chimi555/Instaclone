@@ -9,21 +9,21 @@ ruby '2.5.7'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 # bootstrap-sass
 gem 'bootstrap-sass', '3.3.7'
-#fontawesome
+# fontawesome
 gem 'font-awesome-sass'
-#サンプルユーザー
+# サンプルユーザー
 gem 'faker'
-#ページネーション
-gem 'will_paginate'
+# ページネーション
 gem 'bootstrap-will_paginate'
-#画像投稿
+gem 'will_paginate'
+# 画像投稿
 gem 'carrierwave'
-#画像リサイズ
+# 画像リサイズ
 gem 'mini_magick'
-#jQuery
-gem "jquery-rails"
-#検索機能
-gem "ransack"
+# jQuery
+gem 'jquery-rails'
+# 検索機能
+gem 'ransack'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -62,7 +62,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
-#環境変数を使うためにdotenvを導入
+# 環境変数を使うためにdotenvを導入
 gem 'dotenv-rails'
 
 group :development, :test do
@@ -87,8 +87,8 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'launchy'
-  gem 'shoulda-matchers'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
   # Easy installation and use of chromedriver to run system tests with Chrome
 end
 

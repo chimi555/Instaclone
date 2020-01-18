@@ -1,24 +1,39 @@
 <% provide(:title, @title)%>
-<div class="user_info row">
-    <div class="col-md-4">
-    <%= image_tag @user.image.thumb.to_s %>
+<div class="usershow_info row">
+  <div class="usershow_info-img col-md-4 ">
+    <%= image_tag @user.image.thumb.to_s, class: "img-responsive" %>
+  </div>
+  <div class="col-md-8">
+    <div class="user_info-namebox row">
+      <span>
+        <div class="user-name">
+          <%= @user.user_name %>
+        </div>
+        <div class="user-username">
+          <%= @user.name %>
+        </div>
+      </span>
+      <span>
+        <%if current_user?(@user)%>
+          <%= link_to "プロフィール編集",  edit_user_registration_path, class: "btn" %>
+        <% else %>
+          <%= render 'follow_form'%>
+        <% end %>
+      </span>
     </div>
-    <div class="col-md-8">
-      <%= @user.user_name %>
-      <%if current_user?(@user)%>
-        <%= link_to "プロフィール編集",  edit_user_registration_path, class:"btn" %>
-      <% else %>
-        <%= render 'follow_form'%>
-      <% end %>
-      <div class="countbox">
-        <%= render 'shared/stats'%>
-      </div>
+    <div class="countbox row">
+      <%= render 'shared/stats'%>
     </div>
+    <div class="user-datails row">
+      <p><%= @user.url %></p>
+      <p><%= @user.profile %></p>
+    </div>
+  </div>
 </div>
 <% if @users.any? %>
   <div class="users_box row">
     <div class="col-md-4 user_avatars">
-      
+      <%= image_tag @user.image.thumb50.to_s %>
     </div>
     <div class="col-md-8">
       <%= @title %>

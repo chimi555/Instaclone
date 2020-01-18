@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
-  factory :user, aliases: [:owner, :follower, :followed] do
+  factory :user, aliases: %i[owner follower followed] do
     sequence(:name) { |n| "tester#{n}" }
     sequence(:user_name) { |n| "tester#{n}_username" }
     sequence(:email) { |n| "tester#{n}@example.com" }

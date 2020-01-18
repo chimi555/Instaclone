@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   process resize_to_limit: [680, 680]
-
 
   if Rails.env.production?
     storage :fog
@@ -15,15 +16,14 @@ class PictureUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  #アップロード可能な拡張子のリスト
+  # アップロード可能な拡張子のリスト
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   version :thumb300 do
-   process resize_to_fill: [300, 300, "Center"]
+    process resize_to_fill: [300, 300, 'Center']
   end
-
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)

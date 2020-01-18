@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateNotifications < ActiveRecord::Migration[5.2]
   def change
     create_table :notifications do |t|
@@ -7,7 +9,6 @@ class CreateNotifications < ActiveRecord::Migration[5.2]
       t.integer :comment_id
       t.string :action, default: '', null: false
       t.boolean :checked, default: false, null: false
-
 
       t.timestamps
     end

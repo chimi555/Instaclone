@@ -20,5 +20,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to sign_up_url
     end
   end
-
 end
